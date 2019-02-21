@@ -1,0 +1,31 @@
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.container{
+  width: 100px;
+  height: 20px;
+  .bordered();
+}
+.position(@position,@zIndex) {
+  position: @position;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @zIndex;
+}
+// .box{
+//   width: 10px;
+//   height: 10px;
+//   background-color: red;
+//   .position(fixed, 100);
+// }
+.box(@width:100%,@height:100%) {
+  width: @width;
+  height: @height;
+}
+.header{
+  background-color: blue;
+  .box(20%);
+}

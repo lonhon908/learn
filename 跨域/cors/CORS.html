@@ -24,6 +24,10 @@
     <p>
       CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）。
     </p>
+    <form action="http://localhost:3000/cors.do" method="get">
+      <input type="text"/>
+      <input type="submit" value="提交"/>
+    </form>
     <script>
       `
         由服务端配置：
@@ -50,6 +54,21 @@
           const data = JSON.parse(request.responseText);
           console.log(data)
           console.log(request.getAllResponseHeaders())
+        }
+      }
+
+      const request2 = new XMLHttpRequest();
+      request2.open('GET', 'http://localhost:3000/cors.do', true);
+      request2.setRequestHeader('token', '123');
+      // 在 xhr.send 之前添加这一行
+      request2.withCredentials = true;
+      request2.send(null);
+
+      request2.onreadystatechange = function() {
+        if (request2.readyState == '4' && request2.status == '200') {
+          const data = JSON.parse(request2.responseText);
+          console.log(data)
+          console.log(request2.getAllResponseHeaders())
         }
       }
     

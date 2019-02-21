@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
   // 允许哪个方法访问我
   res.setHeader('Access-Control-Allow-Methods', 'PUT, POST')
   // 设置一段时间内不需要再次预检查请求
-  res.setHeader('Access-Control-Max-Age', 5);
+  res.setHeader('Access-Control-Max-Age', 500);
   // 要求添加token
   res.setHeader('Access-Control-Allow-Headers', 'token')
   // 允许前端请求携带 Cookie
@@ -36,6 +36,14 @@ app.post('/cors.do', function(req, res) {
     res.setHeader('token', 'quanquan');
     res.setHeader('Access-Control-Expose-Headers', 'token');
     res.status(200).send(data);
+})
+app.get('/cors.do', function(req, res) {
+  const data = {
+    name: '张三'
+  }
+  res.setHeader('token', 'quanquan');
+  res.setHeader('Access-Control-Expose-Headers', 'token');
+  res.status(200).send(data);
 })
 
 app.listen(3000, function() {

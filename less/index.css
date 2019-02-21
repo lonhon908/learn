@@ -1,0 +1,18 @@
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.container {
+  width: 100px;
+  height: 20px;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.header {
+  background-color: blue;
+  width: 20%;
+  height: 100%;
+}
+.box2 {
+  height: `window.innerHeight`px;
+}
