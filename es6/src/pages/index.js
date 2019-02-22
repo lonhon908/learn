@@ -20,4 +20,11 @@
 // import './7、function';
 
 /* Array的扩展 */
-import './8、array'
+// import './8、array'
+
+/* 对象的扩展 */
+// import './9、Object';
+
+/* Symbol */
+import './10、Symbol';
+

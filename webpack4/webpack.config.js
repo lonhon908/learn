@@ -1,26 +1,32 @@
 
 const path = require('path');
 // extract-text-webpack-plugin不支持webpack4，请使用 extract-text-webpack-plugin@next 
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空打包输出目录
 const webpack = require('webpack');
 // 复制静态资源
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+// html插件
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'), // //入口文件，src下的index.js
+  entry: {
+    index: path.resolve(__dirname, 'src/index.js')
+  }, // //入口文件，src下的index.js
   output: {
     path: path.join(__dirname, 'dist'), // // 出口目录，dist文件
     filename: '[name]_[hash].js', // //这里name就是打包出来的文件名，因为是单入口，就是main，多入口下回分解
     publicPath: '/', // 同时要处理打包图片路径问题
+    chunkFilename: "[name].chunk.js"
   },
   // 1. source-map 把映射文件生成到单独的文件，最完整最慢
   // 2. cheap-module-source-map 在一个单独的文件中产生一个不带列映射的Map
   // 3. eval-source-map 使用eval打包源文件模块,在同一个文件中生成完整sourcemap
   // 4. cheap-module-eval-source-map sourcemap和打包后的JS同行显示，没有映射列
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'), // //静态文件根目录
     port: 9090, // 端口
@@ -30,15 +36,16 @@ module.exports = {
   },
   resolve: {
     //自动补全后缀，注意第一个必须是空字符串,后缀一定以点开头
-    extensions: ['*', '.js', '.json', '.css'],
+    extensions: ['*', '.js', '.jsx', '.json', '.css'],
     // 配置别名
     alias: {
-      'bootstrap': 'bootstrap/dist/css/bootstrap.css'
+      "jQ": path.resolve(__dirname, "src/vendor/jquery.min.js")
     }
   },
   module: {
     rules: [
       {
+        // 确保将webpack更新到版本4.2.0。否则，mini-css-extract-plugin将无法使用！
         // 选用新的CSS文件提取插件 mini-css-extract-plugin
         test: /\.css$/,
         // 从js中分离css
@@ -69,7 +76,7 @@ module.exports = {
       }, */
       {
         // babel-loader @babel/core @babel/preset-env
-        test: /\.js$/,
+        test: /\.jsx?$/,
         use: ["babel-loader"], // 根目录配置.babelrc
         /* 
           可以直接在这里配置
@@ -94,7 +101,14 @@ module.exports = {
             limit: 5 * 1024
           }
         }
-      }
+      },
+      /* {
+        test: /\.html$/,
+        use: {
+          loader: 'html-loader', // 压缩html
+          options: { minimize: true }
+        }
+      } */
     ]
   },
   plugins: [
@@ -122,7 +136,8 @@ module.exports = {
     }),
     // 暴露全局变量
     new webpack.ProvidePlugin({
-      '$': 'jquery'
+      '$': 'jquery', // npm
+      jQ: "jQuery" // 本地Js文件
     }),
     new CopyWebpackPlugin([
       {
@@ -130,7 +145,16 @@ module.exports = {
         to: path.resolve(__dirname, 'dist/static'),
         ignore: ['.*']
       }
-    ])
+    ]),
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html",
+      chunks: ["index"], // entry中的app入口才会被打包
+      minify: {
+        // 压缩选项
+        collapseWhitespace: true
+      }
+    })
     // new UglifyjsWebpackPlugin(), // 压缩js
   ]
 }
