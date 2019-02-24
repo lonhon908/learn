@@ -3,7 +3,8 @@ const path = require('path');
 // extract-text-webpack-plugin不支持webpack4，请使用 extract-text-webpack-plugin@next 
 // const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); // 压缩css
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空打包输出目录
 const webpack = require('webpack');
 // 复制静态资源
@@ -13,12 +14,23 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 
 module.exports = {
+  optimization: {
+    minimizer: [
+      new UglifyjsWebpackPlugin({ // mode=development时无效
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin(), // mode=development时无效
+    ]
+  },
+  mode: "development", // 打包模式,可以通过脚本命令覆盖
   entry: {
     index: path.resolve(__dirname, 'src/index.js')
   }, // //入口文件，src下的index.js
   output: {
     path: path.join(__dirname, 'dist'), // // 出口目录，dist文件
-    filename: '[name]_[hash].js', // //这里name就是打包出来的文件名，因为是单入口，就是main，多入口下回分解
+    filename: '[name]_[hash:8].js', // //这里name就是打包出来的文件名，因为是单入口，就是main，多入口下回分解
     publicPath: '/', // 同时要处理打包图片路径问题
     chunkFilename: "[name].chunk.js"
   },
@@ -32,6 +44,7 @@ module.exports = {
     port: 9090, // 端口
     host: 'localhost',
     overlay: true,
+    progress: true, // 打包有进度条
     compress: true // 服务器返回浏览器的时候是否启动gzip压缩
   },
   resolve: {
@@ -39,7 +52,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx', '.json', '.css'],
     // 配置别名
     alias: {
-      "jQ": path.resolve(__dirname, "src/vendor/jquery.min.js")
+      // "jQ": path.resolve(__dirname, "src/vendor/jquery.min.js")
     }
   },
   module: {
@@ -52,7 +65,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader, // 去掉style-loader因为与MiniCss...相冲突
           'css-loader',
-          'postcss-loader'
+          'postcss-loader',
         ]
       },
       /* {
@@ -66,7 +79,7 @@ module.exports = {
         })
       }, */
       /* {
-        // css-loader用来处理css中url的路径
+        // css-loader用来处理css中url的路径, @import
         // style-loader可以把css文件变成style标签插入head中
         // 多个loader是有顺序要求的，从右往左写，因为转换的时候是从右往左转换的
         test: /\.css$/,
@@ -111,6 +124,10 @@ module.exports = {
       } */
     ]
   },
+  // 如果是CDN在.html里面引入的，不想打包到项目.js文件下，可以配置
+  // externals: {
+  //   jquery: "$"
+  // },
   plugins: [
     // 从js中分离css
     /* new ExtractTextWebpackPlugin({
@@ -135,7 +152,7 @@ module.exports = {
       NODE_ENV:JSON.stringify(process.env.NODE_ENV)
     }),
     // 暴露全局变量
-    new webpack.ProvidePlugin({
+    new webpack.ProvidePlugin({ // 在每个模块中注入$对象
       '$': 'jquery', // npm
       jQ: "jQuery" // 本地Js文件
     }),
@@ -152,7 +169,8 @@ module.exports = {
       chunks: ["index"], // entry中的app入口才会被打包
       minify: {
         // 压缩选项
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        // hash: true,
       }
     })
     // new UglifyjsWebpackPlugin(), // 压缩js

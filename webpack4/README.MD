@@ -20,7 +20,7 @@
         [
             "@babel/preset-env",
             {
-                "useBuiltIns": "usage", // 自动检测语法帮你require你代码中使用到的功能,无需@babel/polyfill
+                "useBuiltIns": "usage", // 自动检测语法帮你require你代码中使用到的功能,无需@babel/polyfill,但需要安装，"@babel/preset-env"会去使用这个
             }
         ]
     ]

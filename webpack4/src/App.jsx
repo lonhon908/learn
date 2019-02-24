@@ -1,7 +1,7 @@
 import React from 'react';
 const App = () => {
   return (
-    <div>
+    <div className="red">
       <p>React here!</p>
     </div>
   );

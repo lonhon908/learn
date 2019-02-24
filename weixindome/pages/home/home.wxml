@@ -1,0 +1,25 @@
+<view>
+  hello world || {{ msg }}
+  <view>
+    <text>三元运算符</text>
+    <checkbox checked='{{isChecked?true:false}}'></checkbox>
+  </view>
+  <view>
+    <text>逻辑判断</text>
+    <view wx:if="{{true}}">12</view>
+  </view>
+  <view>
+    <text>wx:for数组</text>
+    <view wx:for="{{arr}}" wx:key="{{index}}">
+      {{index}}--{{item}}
+    </view>
+  </view>
+  <view>
+    <text>wx:for对象</text>
+    <!-- wx:for-index="key"修改key名,  wx:for-item="data"修改item名-->
+    <view wx:for="{{person}}" wx:key="{{index}}" wx:for-index="key" wx:for-item="data">
+      {{key}}--{{data}}
+    </view>
+  </view>
+  <view style='background: {{color}}'>style</view>
+</view>

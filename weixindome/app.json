@@ -1,0 +1,55 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": true,
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#fff",
+    "backgroundColor": "blue",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/hone_active.png"
+    },{
+      "pagePath": "pages/logs/logs",
+      "text": "日志",
+      "iconPath": "images/log.png",
+      "selectedIconPath": "images/log_active.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 40000,
+    "connectSocket": 40000,
+    "uploadFile": 40000,
+    "downloadFile": 40000
+  },
+  "requiredBackgroundModes": [{
+    "pages": [
+      "pages/index/index"
+    ],
+    "requiredBackgroundModes": [
+      "audio"
+    ]
+  }],
+  "PermissionObject": {
+    "pages": [
+      "pages/home/home"
+    ],
+    "permission": {
+      "scope.userLocation": {
+        "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      }
+    }
+  }
+}
