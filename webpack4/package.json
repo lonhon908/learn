@@ -4,7 +4,7 @@
   "description": "<a href=\"https://juejin.im/post/5ab79fa75188255582525400\">webpack4之基础篇</a>",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
     "dev": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -26,5 +26,21 @@
 // import './9、Object';
 
 /* Symbol */
-import './10、Symbol';
+// import './10、Symbol';
+// import './11、Symbol';
+
+/* Set,Map */
+// import './12、Set_Map';
+
+/* Proxy */
+// import './13、Proxy';
+
+/* Reflect */
+// import './14、Reflect';
+
+/* Promise */
+// import './15、Promise';
+
+/* Iterator 和 for...of 循环 */
+import './17、Iterator 和 for...of 循环';
 
