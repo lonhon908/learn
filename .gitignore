@@ -2,3 +2,5 @@ node_modules/
 es8/node_modules/
 es6/node_modules/
 webpack4/node_modules/
+webpack4MultiplePages/node_modules/
+vue3dome/node_modules/

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- get表单 -->
+    <form action="http://localhost:3005/process_get" method="GET">
+        First Name: <input type="text" name="first_name"> <br>
+
+        Last Name: <input type="text" name="last_name">
+        <input type="submit" value="Submit">
+    </form>
+    <!-- post表单 -->
+    <form action="http://localhost:3005/process_post" method="POST">
+        First Name: <input type="text" name="first_name"> <br>
+
+        Last Name: <input type="text" name="last_name">
+        <input type="submit" value="Submit">
+    </form>
+    <div class="formData">
+        First Name: <input type="text" name="first_name"> <br>
+        Last Name: <input type="text" name="last_name">
+    </div>
+    <input type="submit" value="提交" onclick="submit();">
+    <script>
+        function submit() {
+            const inputNode = document.querySelectorAll('.formData input');
+            const first_name = inputNode[0].value;
+            const last_name = inputNode[1].value;
+            sendAjaxFormData({
+                first_name,
+                last_name
+            })
+        }
+    
+        function sendAjaxFormData({ first_name, last_name}) {
+            const formData = new FormData();
+            // Object.keys(data).forEach(key => {
+            //     formData.append(key, data[key])
+            // })
+            formData.append('first_name', first_name);
+            formData.append('last_name', last_name);
+            const http = new XMLHttpRequest();
+            // http.timeout = 20000;
+            // http.responseType = 'json';
+            http.open('POST', 'http://localhost:3005/process_post', true);
+            http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            http.send(formData);
+            http.onreadystatechange = function() {
+                if (http.status === 200 && http.readyState === 4) {
+                    console.log(http)
+                }
+            }
+        }
+    </script>
+</body>
+</html>
