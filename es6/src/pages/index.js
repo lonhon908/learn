@@ -42,5 +42,14 @@
 // import './15、Promise';
 
 /* Iterator 和 for...of 循环 */
-import './17、Iterator 和 for...of 循环';
+// import './17、Iterator 和 for...of 循环';
+
+/* Generator */
+// import './18、Generator';
+
+/* async await */
+// import './19、asyncawait';
+
+/* class类 */
+import './20、class';
 
