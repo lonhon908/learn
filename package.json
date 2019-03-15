@@ -8,6 +8,8 @@
   },
   "devDependencies": {
     "express": "^4.16.4",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "vconsole": "^3.3.0"
   },
   "scripts": {
