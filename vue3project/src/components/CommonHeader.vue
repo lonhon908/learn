@@ -6,13 +6,13 @@
       <b></b>
     </div>
     <p>{{title}}</p>
-    <span class="backTop"></span>
+    <span class="" @click="backToHome"></span>
   </header>
 </template>
 
 <script>
 export default {
-  name: 'HeaderTitle',
+  name: 'common-header',
   props: {
     title: {
       type: String,
@@ -28,8 +28,8 @@ export default {
     menuBar() {
       this.$emit('menuBar')
     },
-    backTop() {
-      this.$emit('backTop');
+    backToHome() {
+      this.$emit('backToHome');
     }
   },
   watch: {

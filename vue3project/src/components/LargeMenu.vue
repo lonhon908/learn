@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'LeftMonu',
+  name: 'large-menu',
   props: {
     value: {
       type: Boolean,
@@ -37,6 +37,9 @@ export default {
     jump(data) {
       this.$router.push(data.path);
       this.$emit('input');
+      this.$store.commit('changeTitle', {
+        title: data.title
+      })
     },
     hide() {
       this.$emit('input');
@@ -63,7 +66,8 @@ export default {
   top: 1.28rem;
   bottom: 0;
   width: 100%;
-  background-color: #eeeeee;
+  background-color: rgba(238, 238, 238, 0.5);
+  z-index: 1001;
 }
 .menu{
   position: absolute;

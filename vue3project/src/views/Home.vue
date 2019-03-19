@@ -1,13 +1,16 @@
 <template>
   <div class="home">
     <HeaderTitle
-      :title="title"
+      :title="$store.state.title"
       @menuBar="menuBar"
       @backTop="backTop"/>
     <MoveMenuBtn />
     <LeftMonu
       v-model="menuVisible"
       :menuData="menuData"/>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -31,21 +34,25 @@ export default {
   },
   data() {
     return {
-      menuData: [{
-        path: '/', // 路由
-        name: 'home', // 命名路由
-        value: '首页', // 该路由描述
-        title: '首页', // 路由中文名
-      }],
       title: '',
       menuVisible: false,
+    }
+  },
+  computed: {
+    menuData() {
+      return this.$store.state.menuData;
     }
   },
   methods: {
     menuBar() {
       this.menuVisible = !this.menuVisible;
     },
-    backTop() {},
+    backTop() {
+      // 你可以向 store.commit 传入额外的参数，即 mutation 的 载荷（payload）
+      this.$store.commit('changeTitle', {
+        title: '主页'
+      })
+    },
   },
 }
 </script>
