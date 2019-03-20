@@ -1,12 +1,12 @@
 <template>
-  <div class="common-container vuex">
+  <div class="common-container">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-
+  
 }
 </script>
 

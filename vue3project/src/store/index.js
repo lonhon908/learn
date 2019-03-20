@@ -1,35 +1,34 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createLogger from 'vuex/dist/logger';
 
 import vuexStore from '../views/vuex/store';
+import animationStore from '../views/animation/store';
+
+import menu from './menu';
+import smallMenu from '../views/vuex/menu';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    namespaced: true,
-    vuex: vuexStore
+    vuex: vuexStore,
+    animation: animationStore
   },
-  // 单一状态树
   state: {
     title: '首页', // 头部标题
-    menuData: [{ // 大菜单
-      path: '/vuex', // 路由
-      name: 'vuex', // 命名路由
-      value: 'vuex', // 该路由描述
-      title: 'vuex', // 路由中文名
-    }],
-    activeSmallMenuData: [], // 小菜单
-    // vuex路由数据
-    vuexData: {
-      count: 100
-    },
+    menuData: menu, // 大菜单
+    activeSmallMenuData: smallMenu, // 小菜单
     numbers: [1, 2, 's', false, Math, () => ([])],
     filterType: 'number',
     countVuex: 1,
   },
   mutations: {
+    // 小菜单赋值
+    setterSmallMenu(state, data = []) {
+      state.activeSmallMenuData = data;
+    },
     // 提交载荷（Payload）
     changeTitle(state, Payload) {
       // 在大多数情况下，载荷应该是一个对象，这样可以包含多个字段并且记录的 mutation 会更易读
@@ -82,5 +81,7 @@ export default new Vuex.Store({
     async actionB () {
       return await Promise.resolve(100)
     },
-  }
+  },
+  plugins: [createLogger()], // 日志中间件
+  strict: true, // 严格模式下，任何 mutation 处理函数以外修改 Vuex state 都会抛出错误
 })

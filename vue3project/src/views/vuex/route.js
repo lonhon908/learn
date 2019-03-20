@@ -1,16 +1,8 @@
-import Simple from './components/Simple';
-import State from './components/State';
-
 export default [
-  {
-    path: 'simple',
-    name: 'simple',
-    component: Simple,
-  },
   {
     path: 'state',
     name: 'state',
-    component: State
+    component: () => import(/* webpackChunkName: "State" */ './components/State.vue')
   },
   {
     path: 'getter',
@@ -31,5 +23,10 @@ export default [
     path: 'modules',
     name: 'modules',
     component: () => import(/* webpackChunkName: "Modules" */ './components/Modules.vue')
+  },
+  {
+    path: 'createNamespacedHelpers',
+    name: 'createNamespacedHelpers',
+    component: () => import(/* webpackChunkName: "CreateNamespacedHelpers" */ './components/CreateNamespacedHelpers.vue')
   }
 ]

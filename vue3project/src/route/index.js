@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import VueRouter from '../views/vuex/route';
+import vuexRouter from '../views/vuex/route';
+import animationRouter from '../views/animation/route';
 
 Vue.use(Router)
 
@@ -13,10 +14,19 @@ export default new Router({
     {
       path: '/vuex',
       name: 'vuex',
-      redirect: 'vuex/simple',
+      redirect: 'vuex/state',
       component: () => import(/* webpackChunkName: 'Vuex' */ '../views/vuex/view.vue'),
       children: [
-        ...VueRouter
+        ...vuexRouter
+      ]
+    },
+    {
+      path: '/animation',
+      name: 'animation',
+      redirect: 'animation/baseTrans',
+      component: () => import(/* webpackChunkName: "Animation" */ '../views/animation/view.vue'),
+      children: [
+        ...animationRouter
       ]
     }
   ]

@@ -4,7 +4,7 @@
       <transition name="rootComponentStyle-list">
         <div class="common-bottom-container-list" v-show="visibleSmallMenu">
           <ul class="list">
-            <li v-for="(item, index) in arr" :key="index" @click="jump(item)">{{item.title}}</li>
+            <li v-for="(item, index) in list" :key="index" @click="jump(item)">{{item.title}}</li>
           </ul>
         </div>
       </transition>
@@ -20,7 +20,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    meunData: {
+    menuData: {
       type: Array,
       default: () => ([]),
     }
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       visibleSmallMenu: this.value,
-      list: [...this.meunData],
+      list: [...this.menuData],
       arr: [{
         path: 'simple',
         name: 'simple',
@@ -77,7 +77,7 @@ export default {
     value(newValue) {
       this.visibleSmallMenu = newValue;
     },
-    meunData: {
+    menuData: {
       deep: true,
       handler(newValue) {
         this.list = [...newValue];

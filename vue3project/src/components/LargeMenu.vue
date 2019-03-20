@@ -37,9 +37,7 @@ export default {
     jump(data) {
       this.$router.push(data.path);
       this.$emit('input');
-      this.$store.commit('changeTitle', {
-        title: data.title
-      })
+      this.$emit('changeMenu', data);
     },
     hide() {
       this.$emit('input');
