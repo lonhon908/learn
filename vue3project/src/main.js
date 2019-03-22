@@ -6,6 +6,15 @@ import store from './store';
 import './common/style/index.less';
 import './common/directive';
 
+import MintUI from 'mint-ui';
+import 'mint-ui/lib/style.css';
+Vue.use(MintUI);
+
+import Modal from './components/plugins/modal';
+Vue.use(Modal);
+import Toast from './components/plugins/toast';
+Vue.use(Toast);
+
 Vue.config.productionTip = false
 
 new Vue({

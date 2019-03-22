@@ -4,7 +4,11 @@
       <transition name="leftmove">
         <div class="menu" v-show="visible">
           <ul class="menu-list">
-            <li v-for="(item, index) in list" :key="index" @click.stop.prevent="jump(item)">
+            <li
+              v-for="(item, index) in list"
+              :key="index"
+              @click.stop.prevent="jump(item)"
+              :class="{'actived': activeLargeMenu==item.path}">
               {{item.title}}
             </li>
           </ul>
@@ -22,6 +26,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    activeLargeMenu: {
+      type: String,
+      default: ''
+    },
     menuData: {
       type: Array,
       default: () => [],
@@ -37,7 +45,7 @@ export default {
     jump(data) {
       this.$router.push(data.path);
       this.$emit('input');
-      this.$emit('changeMenu', data);
+      // this.$emit('changeMenu', data);
     },
     hide() {
       this.$emit('input');
@@ -100,6 +108,10 @@ export default {
 }
 .leftmove-enter-active, .leftmove-leave-active{
   transition: left .5s;
+}
+
+.actived{
+  color: #c6ff00;
 }
 </style>
 

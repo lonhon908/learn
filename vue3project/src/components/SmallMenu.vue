@@ -4,7 +4,11 @@
       <transition name="rootComponentStyle-list">
         <div class="common-bottom-container-list" v-show="visibleSmallMenu">
           <ul class="list">
-            <li v-for="(item, index) in list" :key="index" @click="jump(item)">{{item.title}}</li>
+            <li
+              v-for="(item, index) in list"
+              :key="index"
+              @click="jump(item)"
+              :class="{'actived': activeSmallMenu===item.name}">{{item.title}}</li>
           </ul>
         </div>
       </transition>
@@ -19,6 +23,10 @@ export default {
     value: {
       type: Boolean,
       default: false,
+    },
+    activeSmallMenu: {
+      type: String,
+      default: ''
     },
     menuData: {
       type: Array,
@@ -130,5 +138,9 @@ export default {
 }
 .rootComponentStyle-list-enter-active,.rootComponentStyle-list-leave-active{
   transition: all .5s;
+}
+
+.actived{
+  color: #c6ff00;
 }
 </style>

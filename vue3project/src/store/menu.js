@@ -8,4 +8,9 @@ export default [{
   name: 'animation', // 命名路由
   value: 'animation', // 该路由描述
   title: 'animation', // 路由中文名 头部标题
+}, {
+  path: '/componentView',
+  name: 'componentView',
+  value: 'componentView',
+  title: 'componentView',
 }]

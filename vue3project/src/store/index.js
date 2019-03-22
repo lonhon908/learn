@@ -5,6 +5,7 @@ import createLogger from 'vuex/dist/logger';
 
 import vuexStore from '../views/vuex/store';
 import animationStore from '../views/animation/store';
+import componentViewStore from '../views/componentView/store';
 
 import menu from './menu';
 import smallMenu from '../views/vuex/menu';
@@ -14,7 +15,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   modules: {
     vuex: vuexStore,
-    animation: animationStore
+    animation: animationStore,
+    componentView: componentViewStore,
   },
   state: {
     title: '首页', // 头部标题

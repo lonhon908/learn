@@ -5,9 +5,16 @@
     <!-- 移动菜单按钮 -->
     <div class="move-menu" v-drag @click="showSmallMenu"></div>
     <!-- 左侧大菜单 -->
-    <LargeMenu v-model="visibleLargeMenu" :menuData="menulist" @changeMenu="changeMenu"/>
+    <LargeMenu
+      v-model="visibleLargeMenu"
+      :menuData="menulist"
+      :activeLargeMenu="activeLargeMenu"
+      @changeMenu="changeMenu"/>
     <!-- 底部小菜单 -->
-    <SmalllMenu v-model="visibleSmallMenu" :menuData="activeSmallMenuData"/>
+    <SmalllMenu
+      v-model="visibleSmallMenu"
+      :menuData="activeSmallMenuData"
+      :activeSmallMenu="activeSmallMenu"/>
     <!-- webView -->
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
@@ -34,6 +41,19 @@ export default {
       showMenu: false,
       visibleLargeMenu: false,
       visibleSmallMenu: false,
+      activeLargeMenu: '/vuex', // 当前大菜单活动对象
+      activeSmallMenu: 'state',
+    }
+  },
+  watch: {
+    '$route'() {
+      let t = this.$route.fullPath.split('/')[1];
+      this.activeSmallMenu = this.$route.name;
+      if (this.activeLargeMenu !== `/${t}`) {
+        this.activeLargeMenu = `/${t}`;
+        let data = this.menulist.find(data => data.path === `/${t}`)
+        this.changeMenu(data);
+      }
     }
   },
   computed: {
