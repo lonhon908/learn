@@ -63,7 +63,7 @@ export default {
       el.style.backgroundColor = 'red';
     },
     enterCancelled(el) {
-      console.log("动画进入过程中被取消，比如动画进入未完成之前，就点击隐藏按钮");
+      console.log("动画进入过程中被取消，比如动画进入未完成之前，就点击隐藏按钮", el);
     },
     beforeLeave(el) {
       el.style.width = '200px';
@@ -89,7 +89,7 @@ export default {
       fn();
     },
     afterLeave(el) {
-      console.log('元素已经离开了')
+      console.log('元素已经离开了', el)
     },
     leaveCancelled() {
       console.log('动画离开过程中被取消，比如动画离开未完成之前，就点击显示按钮')
