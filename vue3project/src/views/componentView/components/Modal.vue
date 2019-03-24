@@ -36,7 +36,25 @@ export default {
   },
   methods: {
     toggle() {
-      this.$refs.modal.show();
+      // this.$refs.modal.show();
+      this.$Modal.show({
+        title: '标题',
+        content: '我是内容我是内容我是内容我是内容我是内容我是内容',
+        width: '80%',
+        top: '50%',
+        textAlign: 'left',
+        showCancelButton: true,
+        showConfirmButton: true,
+        cancelButtonText: '取消',
+        confirmButtonText: '确定',
+        maskClosable: true,
+        onCancel() {
+          console.log('onCancel')
+        },
+        onOk() {
+          console.log('onOk')
+        }
+      })
     },
     onCancel() {
       console.log('onCancel')

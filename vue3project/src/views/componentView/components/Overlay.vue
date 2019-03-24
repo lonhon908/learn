@@ -1,17 +1,11 @@
 <template>
   <div class="">
     <button class="btn" @click="toggle">overlay</button>
-    <vOverlay v-model="visible"/>
   </div>
 </template>
 
 <script>
-import vOverlay from '../../../components/Overlay';
-
 export default {
-  components: {
-    vOverlay,
-  },
   data() {
     return {
       visible: false,
@@ -19,9 +13,9 @@ export default {
   },
   methods: {
     toggle() {
-      this.visible = true;
+      this.$OverLay.show()
       setTimeout(() => {
-        this.visible = false;
+        this.$OverLay.hide()
       }, 2000)
     }
   },

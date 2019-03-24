@@ -10,10 +10,12 @@ import MintUI from 'mint-ui';
 import 'mint-ui/lib/style.css';
 Vue.use(MintUI);
 
-import Modal from './components/plugins/modal';
+import Modal from './components/plugins/modal2';
 Vue.use(Modal);
 import Toast from './components/plugins/toast';
 Vue.use(Toast);
+import OverLay from './components/plugins/overlay';
+Vue.use(OverLay);
 
 Vue.config.productionTip = false
 
