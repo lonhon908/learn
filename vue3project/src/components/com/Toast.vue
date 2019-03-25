@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="toast" v-if="visible">
+    <div class="toast" v-if="visible" @touchmove.stop.prevent @scroll.prevent>
       <div class="toast-content" :style="{'backgroundColor':backgroundColor,color: color,top: position}">
         {{message}}
       </div>
@@ -52,7 +52,10 @@ export default {
     closed(newValue) {
       if (newValue) {
         this.visible = false;
-        this.$el.addEventListener('transitionend', this.destroyElement);
+        // this.$el.addEventListener('transitionend', this.destroyElement);
+        setTimeout(() => {
+          this.destroyElement && this.destroyElement();
+        }, 300);
       }
     }
   },
@@ -75,9 +78,7 @@ export default {
     close() {
       this.closed = true;
     },
-    destroyElement() {
-      this.$destroy();
-    }
+    destroyElement() {}
   },
 }
 </script>

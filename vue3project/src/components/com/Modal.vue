@@ -109,18 +109,27 @@ export default {
   data() {
     return {
       visible: false,
+      closed: false, // 是否已关闭
     }
   },
   watch: {
-    visible(newValue) {
-      if (!newValue) {
-        this.$el.addEventListener('transitionend', this.destroyElement);
+    closed(newValue) {
+      if (newValue) {
+        // this.$el.addEventListener('transitionend', () => {
+        //   this.destroyElement && this.destroyElement();
+        //   this.$destroy();
+        // }, false);
+        setTimeout(() => {
+          this.destroyElement && this.destroyElement();
+        }, 300);
+        this.visible = false;
       }
     }
   },
   methods: {
     show() {
       this.visible = true;
+      this.closed = false;
     },
     hideModal() {
       if (this.maskClosable) {
@@ -142,7 +151,7 @@ export default {
       this.hide();
     },
     hide() {
-      this.visible = false;
+      this.closed = true;
     },
     destroyElement() {}
   },

@@ -43,6 +43,7 @@ export default {
         width: '80%',
         top: '50%',
         textAlign: 'left',
+        // transition: false,
         showCancelButton: true,
         showConfirmButton: true,
         cancelButtonText: '取消',

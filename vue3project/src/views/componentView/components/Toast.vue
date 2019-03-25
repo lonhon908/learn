@@ -15,7 +15,11 @@ export default {
   methods: {
     toggle() {
       this.$Toast.show({
-        message: 'O(∩_∩)O哈哈~'
+        message: 'O(∩_∩)O哈哈~',
+        duration: 3000,
+        position: '50%',
+        backgroundColor: 'red',
+        color: '#fff'
       })
     }
   },

@@ -13,10 +13,13 @@ export default {
   },
   methods: {
     toggle() {
-      this.$OverLay.show()
+      this.$OverLay.show({
+        backgroundColor: '#000',
+        opacity: .1
+      })
       setTimeout(() => {
         this.$OverLay.hide()
-      }, 2000)
+      }, 3000)
     }
   },
 }
