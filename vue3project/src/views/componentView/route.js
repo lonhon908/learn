@@ -10,4 +10,8 @@ export default [{
   path: 'modal',
   name: 'modal',
   component: () => import(/* webpackChunkName: "Modal" */ './components/Modal.vue')
+}, {
+  path: 'autotextarea',
+  name: 'autotextarea',
+  component: () => import(/* webpackChunkName: "AutoTextarea" */ './components/TextareaAuto.vue')
 }]

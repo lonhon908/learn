@@ -13,4 +13,9 @@ export default [{
   name: 'modal',
   value: 'modal',
   title: 'modal',
+}, {
+  path: 'autotextarea',
+  name: 'autotextarea',
+  value: 'autotextarea',
+  title: 'autotextarea',
 }]

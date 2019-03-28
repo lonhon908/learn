@@ -1,36 +1,22 @@
 <template>
-  <div>
-    <div v-if="transition">
-      <transition name="fade">
-        <div v-show="visible" class="modal-container flex justify-content-center" @click="hideModal">
-          <div class="pop-container" :style="{'top': top, 'width': width}">
-            <h1 class="model-title" v-if="title" v-html="title"></h1>
-            <div class="model-content" v-html="content" :style="{'textAlign': textAlign,maxHeight: maxHeight}"></div>
-            <slot name="btn">
-              <div :class="filament?'modal-btn-filament':'modal-btn'" v-if="showConfirmButton||showCancelButton">
-                <span v-if="showCancelButton" @click="cencel">{{cancelButtonText}}</span>
-                <span v-if="showConfirmButton" @click="ok">{{confirmButtonText}}</span>
-              </div>
-            </slot>
-          </div>
-        </div>
-      </transition>
-    </div>
-    <div v-else>
-      <div v-show="visible" class="modal-container flex justify-content-center" @click="hideModal">
-        <div class="pop-container" :style="{'top': top, 'width': width}">
-          <h1 class="model-title" v-if="title" v-html="title"></h1>
-          <div class="model-content" v-html="content" :style="{'textAlign': textAlign,maxHeight: maxHeight}"></div>
-          <slot name="btn">
-            <div :class="filament?'modal-btn-filament':'modal-btn'" v-if="showConfirmButton||showCancelButton">
-              <span v-if="showCancelButton" @click="cencel">{{cancelButtonText}}</span>
-              <span v-if="showConfirmButton" @click="ok">{{confirmButtonText}}</span>
-            </div>
+  <transition :name="transition?'fade':''">
+    <div v-show="visible" class="modal-container flex justify-content-center" @click="hideModal">
+      <div class="pop-container" :style="{'top': top, 'width': width}">
+        <h1 class="model-title" v-if="title" v-html="title"></h1>
+        <div class="model-content" :style="{'textAlign': textAlign,maxHeight: maxHeight}">
+          <slot>
+            <div v-html="content"></div>
           </slot>
         </div>
+        <slot name="btn">
+          <div :class="filament?'modal-btn-filament':'modal-btn'" v-if="showConfirmButton||showCancelButton">
+            <span v-if="showCancelButton" @click="cencel">{{cancelButtonText}}</span>
+            <span v-if="showConfirmButton" @click="ok">{{confirmButtonText}}</span>
+          </div>
+        </slot>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>

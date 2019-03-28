@@ -18,4 +18,19 @@ export default [{
   name: 'firstRenderAppear',
   value: '',
   title: 'firstRenderAppear',
+}, {
+  path: 'multipleElementTransition',
+  name: 'multipleElementTransition',
+  value: '',
+  title: 'multipleElementTransition',
+}, {
+  path: 'multipleComponentTransition',
+  name: 'multipleComponentTransition',
+  value: '',
+  title: 'multipleComponentTransition',
+}, {
+  path: 'listTransition',
+  name: 'listTransition',
+  value: '',
+  title: 'listTransition',
 }]
