@@ -13,4 +13,14 @@ export default [{
   name: 'componentView',
   value: 'componentView',
   title: 'componentView',
+}, {
+  path: '/render',
+  name: 'render',
+  value: 'render',
+  title: 'render',
+}, {
+  path: '/vueAPI',
+  name: 'vueAPI',
+  value: 'vueAPI',
+  title: 'vueAPI',
 }]

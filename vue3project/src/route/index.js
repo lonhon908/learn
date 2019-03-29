@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import vuexRouter from '../views/vuex/route';
 import animationRouter from '../views/animation/route';
 import componentViewRouter from '../views/componentView/route';
+import renderRouter from '../views/render/route';
+import vueAPIRouter from '../views/vueAPI/route';
 
 Vue.use(Router)
 
@@ -38,6 +40,24 @@ export default new Router({
       children: [
         ...componentViewRouter
       ]
-    }
+    },
+    {
+      path: '/render',
+      name: 'render',
+      redirect: 'render/baseRender',
+      component: () => import(/* webpackChunkName: "Render" */ '../views/render/view.vue'),
+      children: [
+        ...renderRouter
+      ]
+    },
+    {
+      path: '/vueAPI',
+      name: 'vueAPI',
+      redirect: 'vueAPI/$data',
+      component: () => import(/* webpackChunkName: "VueAPI" */ '../views/vueAPI/view.vue'),
+      children: [
+        ...vueAPIRouter
+      ]
+    },
   ]
 })

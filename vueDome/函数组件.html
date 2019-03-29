@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/vue.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <!-- <p>函数组件，其实是一个接收参数的函数，没有自己的状态，没有生命周期，不创建组件实例，也不可以在render里面调用this 练手时间</p> -->
+    <function-component :tags="['h1', 'h2', 'h3', 'h4', 'h5', 'h6']">
+      <div>1</div>
+    </function-component>
+  </div>
+
+  <script>
+    /**
+     * 函数组件的渲染函数还会接收一个额外的 context 参数，为没有实例的函数组件提供上下文信息。
+     * 这里我们用对象解构context 
+     */
+    const FunctionComponent = {
+      functional: true,
+      render(h, {props: {tags}}) {
+        return h('div', {attrs: {
+            class:'function',
+            'data-self': 'func'
+          }}, tags.map((item, key) => h(item, key)))
+      }
+    }
+
+    Vue.component('function-component', FunctionComponent);
+    new Vue({}).$mount('#root')
+  
+  </script>
+</body>
+</html>
