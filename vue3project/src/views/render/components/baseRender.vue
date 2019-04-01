@@ -10,7 +10,8 @@ export default {
   components: {
     'anchored-heading': {
       render(h) {
-        return h(`h${this.level}`, {}, this.$slots.default)
+        let VNode = h(`h${this.level}`, {}, this.$slots.default);
+        return VNode;
       },
       mounted() {
         console.log(this.$slots, this.$props, this.$data, this.$parent)
