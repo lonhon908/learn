@@ -5,6 +5,7 @@ import animationRouter from '../views/animation/route';
 import componentViewRouter from '../views/componentView/route';
 import renderRouter from '../views/render/route';
 import vueAPIRouter from '../views/vueAPI/route';
+import vueRouterRouter from '../views/vueRouter/route';
 
 Vue.use(Router)
 
@@ -57,6 +58,17 @@ export default new Router({
       component: () => import(/* webpackChunkName: "VueAPI" */ '../views/vueAPI/view.vue'),
       children: [
         ...vueAPIRouter
+      ]
+    },
+    {
+      path: '/vueRouter',
+      // 别名
+      alias: '/vuerouter',
+      name: 'vueRouter',
+      redirect: 'vueRouter/dynamicRouteMatching',
+      component: () => import(/* webpackChunkName: "vueRouter" */ '../views/vueRouter/view.vue'),
+      children: [
+        ...vueRouterRouter
       ]
     },
   ]

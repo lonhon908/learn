@@ -38,4 +38,9 @@ export default [{
   name: 'functional',
   value: '',
   title: 'functional',
+}, {
+  path: 'customEvents',
+  name: 'customEvents',
+  value: '',
+  title: 'customEvents',
 }]

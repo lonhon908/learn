@@ -8,6 +8,7 @@ import animationStore from '../views/animation/store';
 import componentViewStore from '../views/componentView/store';
 import renderStore from '../views/render/store';
 import vueAPIStore from '../views/vueAPI/store';
+import vueRouterStore from '../views/vueRouter/store';
 
 import menu from './menu';
 import smallMenu from '../views/vuex/menu';
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     componentView: componentViewStore,
     render: renderStore,
     vueAPI: vueAPIStore,
+    vueRouter: vueRouterStore,
   },
   state: {
     title: '首页', // 头部标题

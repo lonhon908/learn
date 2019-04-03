@@ -30,4 +30,8 @@ export default [{
   path: 'functional',
   name: 'functional',
   component: () => import(/* webpackChunkName: "Functional" */ './components/functional.vue'),
+}, {
+  path: 'customEvents',
+  name: 'customEvents',
+  component: () => import(/* webpackChunkName: "CustomEvents" */ './components/CustomEvents.vue'),
 }]

@@ -23,4 +23,9 @@ export default [{
   name: 'vueAPI',
   value: 'vueAPI',
   title: 'vueAPI',
+}, {
+  path: '/vueRouter',
+  name: 'vueRouter',
+  value: 'vueRouter',
+  title: 'vueRouter',
 }]
