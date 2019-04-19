@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    header,main,footer,nav{display: block; box-sizing: border-box;}
+    a{color: #000000; text-decoration: none;}
+    .header, .footer{
+      font-size: 20px;
+      text-align: center;
+      line-height: 100px;
+      background-color: rgba(250, 235, 215, 0.3);
+    }
+    .footer{
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 100;
+      background-color: rgba(127, 255, 212, 0.3);
+    }
+    .main{
+      position: relative;
+      height: 1000px;
+      padding-top: 50px;
+    }
+    .nav{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background-color: #fff;
+      display: flex;
+      font-size: 16px;
+      text-align: center;
+      line-height: 50px;
+    }
+    .nav a{
+      flex: 1;
+    }
+    .nav a.actived{
+      background-color: rgba(255, 0, 0, 0.3);
+      color: #fff;
+    }
+    .aside{
+      position: fixed;
+      right: 10px;
+      top: 150px;
+      width: 150px;
+      height: 150px;
+      background-color: beige;
+      z-index: 101;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">header</header>
+  <main class="main">
+    <nav class="nav">
+      <a href="#" class="actived">nav01</a>
+      <a href="#">nav02</a>
+      <a href="#">nav03</a>
+    </nav>
+    <article class="user">
+      <header>
+        <h2>Part 1: Variety is spicy</h2>
+      </header>
+      <section>
+        <p>我们在每天早上 <time>9:00</time> 开始营业。</p>
+        <p>Do not forget to buy <mark>milk</mark> today.</p>
+      </section>
+      <footer>
+        <figure>figure</figure>
+      </footer>
+    </article>
+    <aside class="aside">aside 用来装载非正文类的内容。例如广告，成组的链接，侧边栏等等。</aside>
+  </main>
+  <footer class="footer">footer</footer>
+
+  <script>
+    document.querySelector('.nav').addEventListener('click', function(e) {
+      [].slice.call(this.children).forEach(vnode => {
+        vnode.classList.remove('actived')
+      })
+      e.target.classList.add('actived')
+    })
+    document.querySelector('.nav a').addEventListener('drag', function(e) {
+      console.log(e)
+    })
+  </script>
+</body>
+</html>

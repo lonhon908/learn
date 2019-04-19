@@ -1,0 +1,137 @@
+const province = [{
+  "id": "AH",
+  "parentId": "CHN",
+  "value": "安徽"
+}, {
+  "id": "AM",
+  "parentId": "CHN",
+  "value": "澳门"
+}, {
+  "id": "BJ",
+  "parentId": "CHN",
+  "value": "北京"
+}, {
+  "id": "CHQ",
+  "parentId": "CHN",
+  "value": "重庆"
+}, {
+  "id": "FJ",
+  "parentId": "CHN",
+  "value": "福建省"
+}, {
+  "id": "GD",
+  "parentId": "CHN",
+  "value": "广东省"
+}, {
+  "id": "GS",
+  "parentId": "CHN",
+  "value": "甘肃省"
+}, {
+  "id": "GX",
+  "parentId": "CHN",
+  "value": "广西"
+}, {
+  "id": "GZH",
+  "parentId": "CHN",
+  "value": "贵州省"
+}, {
+  "id": "HA",
+  "parentId": "CHN",
+  "value": "海南省"
+}, {
+  "id": "HB",
+  "parentId": "CHN",
+  "value": "河北省"
+}, {
+  "id": "HK",
+  "parentId": "CHN",
+  "value": "香港特别行政区"
+}, {
+  "id": "HLJ",
+  "parentId": "CHN",
+  "value": "黑龙江省"
+}, {
+  "id": "HN",
+  "parentId": "CHN",
+  "value": "河南省"
+}, {
+  "id": "HUB",
+  "parentId": "CHN",
+  "value": "湖北省"
+}, {
+  "id": "HUN",
+  "parentId": "CHN",
+  "value": "湖南省"
+}, {
+  "id": "JL",
+  "parentId": "CHN",
+  "value": "吉林省"
+}, {
+  "id": "JS",
+  "parentId": "CHN",
+  "value": "江苏省"
+}, {
+  "id": "JX",
+  "parentId": "CHN",
+  "value": "江西省"
+}, {
+  "id": "LN",
+  "parentId": "CHN",
+  "value": "辽宁省"
+}, {
+  "id": "NMG",
+  "parentId": "CHN",
+  "value": "内蒙古自治区"
+}, {
+  "id": "NX",
+  "parentId": "CHN",
+  "value": "宁夏回族自治区"
+}, {
+  "id": "QH",
+  "parentId": "CHN",
+  "value": "青海省"
+}, {
+  "id": "SCH",
+  "parentId": "CHN",
+  "value": "四川省"
+}, {
+  "id": "SHD",
+  "parentId": "CHN",
+  "value": "山东省"
+}, {
+  "id": "SHH",
+  "parentId": "CHN",
+  "value": "上海市"
+}, {
+  "id": "SHX",
+  "parentId": "CHN",
+  "value": "陕西省"
+}, {
+  "id": "SX",
+  "parentId": "CHN",
+  "value": "山西省"
+}, {
+  "id": "TJ",
+  "parentId": "CHN",
+  "value": "天津市"
+}, {
+  "id": "TW",
+  "parentId": "CHN",
+  "value": "台湾省"
+}, {
+  "id": "XJ",
+  "parentId": "CHN",
+  "value": "新疆维吾尔自治区"
+}, {
+  "id": "XZ",
+  "parentId": "CHN",
+  "value": "西藏自治区"
+}, {
+  "id": "YN",
+  "parentId": "CHN",
+  "value": "云南省"
+}, {
+  "id": "ZJ",
+  "parentId": "CHN",
+  "value": "浙江省"
+}]

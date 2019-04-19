@@ -9,14 +9,22 @@
 </head>
 
 <body>
+  <div id="app">
+    <button onclick="getData(1)">获取数据1</button>
+    <button onclick="getData(2)">获取数据2</button>
+    <p class="p1"></p>
+    <p class="p2"></p>
+  </div>
   <script>
-    const http = new XMLHttpRequest();
-    http.open('GET', 'http://localhost:3001/user_get.do', true);
-    http.send();
-    http.onreadystatechange = function() {
-      if (http.status === 200) {
-        if (http.readyState === 4) {
-          console.log(JSON.parse(http.responseText));
+    function getData(index) {
+      const http = new XMLHttpRequest();
+      http.open('GET', `http://11.241.9.9:3001/user_get${index}.do`, true);
+      http.send();
+      http.onreadystatechange = function() {
+        if (http.status === 200) {
+          if (http.readyState === 4) {
+            document.querySelector(`.p${index}`).innerHTML = http.responseText
+          }
         }
       }
     }

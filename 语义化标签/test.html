@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // const session = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFwcF9wYV9ocm1fMTAwMDA1IiwidHlwZSI6IjEiLCJleHAiOjE1NTU2NjkxODIsImlhdCI6MTU1NTU4Mjc4Miwic2lkIjoiUzU1ZmY0NDk3NmEyZjI4NDkwMTZhMmZmNThjNGMwNDA0MCJ9.DdGw_y7Luvp3pdqRxMr-gWSNB62f-1nUeRBhr8Vdxek'
+    // var http = new XMLHttpRequest();
+    // http.open('POST', 'https://z-stg1.pa18.com/mobile/entry/applBaseinfo/selectByBaseKinds.do', true);
+    // http.send(null);
+    // http.setRequestHeader('X-HRX-SESSION', session)
+  </script>
+  <script>
+    const session = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFwcF9wYV9ocm1fMTAwMDA1IiwidHlwZSI6IjEiLCJleHAiOjE1NTU2NjkxODIsImlhdCI6MTU1NTU4Mjc4Miwic2lkIjoiUzU1ZmY0NDk3NmEyZjI4NDkwMTZhMmZmNThjNGMwNDA0MCJ9.DdGw_y7Luvp3pdqRxMr-gWSNB62f-1nUeRBhr8Vdxek'
+    
+    const url = 'https://z-stg1.pa18.com/mobile/entry/applBaseinfo/selectByBaseKinds.do';
+    function axios(params) {
+      fetch(url, {
+        method: 'POST',
+        body: Object.keys(params).map((key) => {
+          return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+        }).join('&')
+      })
+    }
+    axios({});
+  </script>
+</body>
+</html>

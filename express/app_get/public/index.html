@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    .box{
+      word-break: break-all;
+    }
+    .box .p i{
+      text-decoration: underline;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+  <button onclick="add()" class="add">add</button>
+  <div class="box">
+    <p class="p">也就是说默认为 IPV6 模式了，<i>&nbsp;至于如何改可能要研究下&nbsp;</i>，所以地址最好显示声明为 "127.0.0.1" 或 <i>&nbsp;localhost&nbsp;</i>，所以地址最好显示声明为，所以地址最好显示声明为，所以地址最好显示声明为<i>&nbsp;asdasdasdjnkjdhajksbdjkah&nbsp;</i></p>
+  </div>
+  <script>
+    // var addNode = document.querySelector('.add');
+    var textareaNode = document.querySelector('#textarea');
+    var pNode = document.querySelector('.p')
+    function add() {
+      pNode.innerHTML = JSON.stringify(textareaNode.value);
+    }
+  </script>
+</body>
+</html>

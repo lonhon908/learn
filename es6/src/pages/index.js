@@ -48,8 +48,8 @@
 // import './18、Generator';
 
 /* async await */
-// import './19、asyncawait';
+import './19、asyncawait';
 
 /* class类 */
-import './20、class';
+// import './20、class';
 
