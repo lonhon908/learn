@@ -1,3 +1,4 @@
+
 function toArray(classArray) {
   return [].slice.call(classArray);
 }

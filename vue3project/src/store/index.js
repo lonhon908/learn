@@ -22,7 +22,7 @@ export default new Vuex.Store({
     componentView: componentViewStore,
     render: renderStore,
     vueAPI: vueAPIStore,
-    vueRouter: vueRouterStore,
+    vueRouters: vueRouterStore,
   },
   state: {
     title: '首页', // 头部标题

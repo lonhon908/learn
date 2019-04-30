@@ -26,7 +26,7 @@ class Vue {
         configurable: true,
         set(value) {
           if(data[key] === value) return;
-          return value;
+          data[key] = value;
         },
         get() {
           return data[key];

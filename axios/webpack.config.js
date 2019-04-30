@@ -13,7 +13,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    port: 3000, // 端口
+    port: 8888, // 端口
     host: 'localhost',
   },
   resolve: {

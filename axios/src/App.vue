@@ -7,6 +7,10 @@
       <section class="get" @click="postData(1)">post请求1</section>
       <section class="get" @click="postData(2)">post请求2</section>
       <section class="get" @click="postData(3)">post请求3</section>
+      <section class="get" @click="ajaxData(1)">原生ajax请求1</section>
+      <section class="get" @click="ajaxData(2)">原生ajax请求2</section>
+      <section class="get" @click="ajaxData(3)">原生ajax请求3</section>
+      <a class="get" href="http://11.241.8.195:3000/download">a标签下载</a>
       <section class="get" @click="cancel">取消请求</section>
     </div>
   </div>
@@ -37,7 +41,7 @@ export default {
       })
     },
     postData(index) {
-      post('user_get2.do', {
+      post('/login', {
         id: index
       }, {
         cancelToken: new CancelToken(function executor(c) {
@@ -53,6 +57,17 @@ export default {
           // 处理错误
         }
       })
+    },
+    ajaxData(index) {
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText);
+        }
+      }
+      xhr.open('GET', 'http://11.241.8.195:3000/download');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send(`id=${index}`)
     },
     cancel() {
       try {

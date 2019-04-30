@@ -1,4 +1,48 @@
-// Observer.js
+// import Dep from './Dep';
+
+// // 监听者,监听对象属性值的变化
+// class Observer {
+//   constructor(value) {
+//     this.value = value;
+//     this.walk(value);
+//   }
+
+//   // 遍历属性值并监听
+//   walk(data) {
+//     if (!data || typeof data !== 'object') return;
+//     Object.keys(data).forEach(key => {
+//       this.defineReactive(data, key, value);
+//       this.walk(value);
+//     });
+//   }
+
+//   defineReactive(data, key, value) {
+//     let dep = new Dep();
+//     let _this = this;
+//     Object.defineProperty(data, key, {
+//       enumerable: true,
+//       configurable: true,
+//       get: () => {
+//         if (Dep.target) {
+//           dep.depend();
+//         }
+//         return value;
+//       },
+//       set: (newVal) => {
+//         if (value === newVal) return;
+//         value = newVal;
+//         // 对新值进行监听
+//         _this.walk(newVal);
+//         // 通知所有订阅者，数值被改变了
+//         dep.notify();
+//       }
+//     })
+//   }
+// }
+
+
+
+// // Observer.js
 class Observer {
   constructor(data) {
     this.data = data

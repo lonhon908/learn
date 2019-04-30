@@ -2,7 +2,7 @@ import axios from 'axios';
 import session from './session';
 
 // const host = 'https://z-stg1.pa18.com'
-const host = 'http://11.241.8.225:3001';
+const host = 'http://11.241.8.195:3000';
 
 // 模拟异步获取session
 function getSession() {
@@ -20,9 +20,31 @@ async function ajax() {
     const instance = axios.create({
       baseURL: host,
       headers: {
-        'X-HRX-SESSION': session
+        'X-HRX-SESSION': session,
+        'Content-Type': 'application/json',
       }
     })
+    // 请求拦截
+    instance.interceptors.request.use(function(config) {
+      const a = config.data;
+      Object.assign(a, {
+        addParam: '请求拦截器添加参数'
+      })
+      config.data = a;
+      return config
+    }, function (error) {
+      // 对请求错误做些什么
+      return Promise.reject(error);
+    })
+    // 添加响应拦截器
+    instance.interceptors.response.use(function (response) {
+      // 对响应数据做点什么
+      console.log('response', response)
+      return response;
+    }, function (error) {
+      // 对响应错误做点什么
+      return Promise.reject(error);
+    });
     return instance;
 /* 
     // 方法二
@@ -67,10 +89,10 @@ export function get(url, data, config) {
         method: 'get',
         url,
         params: data,
-        /* headers: {
-          "Accept": "application/json;charset=utf-8",
-          'Content-Type': 'application/json'
-        } */
+        // headers: {
+        //   "Accept": "application/json;charset=utf-8",
+        //   'Content-Type': 'application/json'
+        // }
       }).then(res => {
         if (res.status === 200) {
           resolve(res.data)

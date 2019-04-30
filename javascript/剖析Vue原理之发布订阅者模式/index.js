@@ -8,7 +8,8 @@ new Vue({
   },
   methods: {
     add() {
-      console.log(123)
+      this.message = Math.random();
+      console.log(100)
     }
   }
 })

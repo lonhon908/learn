@@ -1,6 +1,6 @@
 // import {post, get} from './common/js/post';
 
-// const url = '/mobile/entry/applBaseinfo/selectByBaseKinds.do'
+// const url = 'https://z-stg1.pa18.com/mobile/entry/applBaseinfo/selectByBaseKinds.do'
 // // const url = 'mobile-ctf/eap/eapCtfMsgUpdateT/get.do'
 
 // let country = []; // CHN
