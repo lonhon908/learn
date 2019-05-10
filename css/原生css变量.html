@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    :root{
+      --color: red;
+      --blue_color: blue;
+      --main_bgcolor: #fafafa;
+      --font_size_12: 12px;
+      --font_size_14: 14px;
+      --font_lineHeight: 20px;
+    }
+    #app p{
+      font-size: var(--font_size_12);
+      line-height: var(--font_lineHeight);
+      color: var(--color);
+      text-decoration: underline;
+      text-decoration-color: var(--blue_color);
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p>段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落</p>
+  </div>
+  
+  <script>
+    /* 
+      CSS 原生也是存在变量的，使用规则如下：
+        1、变量定义的语法是： --*； // 为变量名称。
+        2、变量使用的语法是：var()；
+     */
+  /* 
+    无论是变量的定义和使用只能在声明块 {} 里面
+    :root{
+      --color: red;
+    }
+
+  
+   */
+  </script>
+</body>
+</html>

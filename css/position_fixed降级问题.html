@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body,#app{width: 100%;height: 100%;}
+    #app{
+      position: relative;
+    }
+    .container{
+      height: 500px;
+      background-color: aliceblue;
+      transform: translateX(10px);
+    }
+    .content{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 不知道曾经的你是不是遇到吸顶效果，就是使用 position:fixed 这个属性。
+      其实如果其父元素中有使用 transform，fixed 的效果会降级为 absolute。 -->
+    <div class="container">
+      <div class="content"></div>
+    </div>
+  </div>
+</body>
+</html>

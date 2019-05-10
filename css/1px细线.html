@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body,#app{width: 100%;height: 100%;}
+    li{
+      list-style: none;
+      font-size: 12px;
+      line-height: 38px;
+      text-align: center;
+      position: relative;
+      /* 方法二 */
+      box-shadow: inset 0px -1px 1px -1px black;
+      margin-bottom: 1px;
+    }
+    /* 方法一 */
+    /* li:after{
+      content: '.';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: black;
+      transform: scaleY(0.5);
+    } */
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul class="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+</body>
+</html>

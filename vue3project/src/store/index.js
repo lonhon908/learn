@@ -8,7 +8,7 @@ import animationStore from '../views/animation/store';
 import componentViewStore from '../views/componentView/store';
 import renderStore from '../views/render/store';
 import vueAPIStore from '../views/vueAPI/store';
-import vueRouterStore from '../views/vueRouter/store';
+import vueRouterStore from '../views/vueRouters/store';
 
 import menu from './menu';
 import smallMenu from '../views/vuex/menu';

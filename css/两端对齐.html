@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body,#app{width: 100%;height: 100%;}
+    .item{
+      width: 300px;
+      /* 设置高度，超出部分隐藏 */
+      height: 32px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 32px;
+      border: 1px solid red;
+      text-align: justify;
+      text-align-last:justify;
+      /* 兼容ie */
+      text-justify: distribute-all-lines;
+    }
+    /* 兼容移动端 */
+    .item::after{
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+    .more{
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- lang="zh"兼容火狐 -->
+    <div class="item" lang="zh">时间</div>
+    <div class="item" lang="zh">绝对值</div>
+    <div class="item" lang="zh">德玛西亚</div>
+    <div class="item" lang="zh">come on hello world</div>
+    <div class="item more" lang="zh">前几天在项目开发过程几天在项目开发过程中需要实现一个列表两端对齐，想着在页面开发过程中也经常会有需要用到两端对齐布局的时候，就计划总结一下常见</div>
+  </div>
+</body>
+</html>
