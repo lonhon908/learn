@@ -5,7 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
-    "fastclick": "^1.0.6"
+    "@types/jquery": "^3.3.30",
+    "fastclick": "^1.0.6",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "express": "^4.16.4",

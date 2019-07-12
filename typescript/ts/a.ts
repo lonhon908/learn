@@ -17,3 +17,19 @@ const a = Person.getInstance();
 const b = Person.getInstance();
 console.log(a===b)
 console.log(a);
+
+
+
+interface Person {
+    sex: '男'|'女'
+    age: number,
+}
+
+
+let abcd: 1|2|3|'' = 2;
+
+abcd = 1;
+abcd = 2;
+abcd = 3;
+abcd = '';
+abcd = 100;

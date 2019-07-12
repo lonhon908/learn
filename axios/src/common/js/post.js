@@ -20,7 +20,7 @@ async function ajax() {
     const instance = axios.create({
       baseURL: host,
       headers: {
-        'X-HRX-SESSION': session,
+        'SESSION': session,
         'Content-Type': 'application/json',
       }
     })

@@ -60,13 +60,49 @@ export default {
     },
     ajaxData(index) {
       const xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          console.log(xhr.responseText);
+      // xhr.onreadystatechange = function() {
+      //   console.log('xhr.readyState',xhr.readyState)
+      //   if (xhr.readyState === 4 && xhr.status === 200) {
+      //     const blob = xhr.response;
+      //     const reader = new FileReader();
+      //     reader.readAsDataURL(blob);
+
+      //     reader.onload = function(e) {
+      //       const a = document.createElement('a');
+      //       a.download = 'abc.pdf';
+      //       a.href = e.target.result;
+      //       console.log(e.target.result)
+      //       // document.body.append(a);
+      //       a.click();
+      //       // document.body.removeChild(a);
+      //     }
+      //   }
+      // }
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const blob = xhr.response;
+          const reader = new FileReader();
+          reader.readAsDataURL(blob);
+
+          reader.onload = function(e) {
+            const a = document.createElement('a');
+            a.download = 'abc.pdf';
+            a.href = e.target.result;
+            console.log('e.target.result')
+            document.body.append(a);
+            a.click();
+            document.body.removeChild(a);
+          }
         }
       }
-      xhr.open('GET', 'http://11.241.8.195:3000/download');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.open('GET', 'http://11.241.8.245:3006/download.do', true);
+      // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      // xhr.timeout = 20000;
+      // xhr.ontimeout = function() {
+      //   console.log(arguments[0], '*****')
+      // }
+      // xhr.setRequestHeader('Accept', 'blob')
+      xhr.responseType = 'blob';
       xhr.send(`id=${index}`)
     },
     cancel() {

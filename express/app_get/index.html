@@ -18,7 +18,7 @@
   <script>
     function getData(index) {
       const http = new XMLHttpRequest();
-      http.open('GET', `http://11.241.9.9:3001/user_get${index}.do`, true);
+      http.open('POST', `http://localhost:3001/user_get${index}.do`, true);
       http.send();
       http.onreadystatechange = function() {
         if (http.status === 200) {
@@ -28,6 +28,7 @@
         }
       }
     }
+    getData(2)
   </script>
 </body>
 

@@ -1,0 +1,10 @@
+interface _D {
+  add<T>(s: T): T;
+  readonly _index: number;
+  Person(name: string, age: number): any;
+}
+
+declare module 'fn' {
+  import D from './fn';
+  
+}

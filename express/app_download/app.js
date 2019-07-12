@@ -5,7 +5,7 @@ const app = require('../access.js');
 app.use(express.static('public'));
 
 app.get('/download.do', function(req, res) {
-    res.download('public/FeHelper-20190226114618.json');
+    res.download('public/abc.pdf');
 })
 
 app.listen(3006, function() {

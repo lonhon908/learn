@@ -19,6 +19,8 @@ Vue.use(OverLayer);
 
 Vue.config.productionTip = false
 
+// import './test'
+
 new Vue({
   router,
   store,
