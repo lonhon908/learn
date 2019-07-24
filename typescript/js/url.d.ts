@@ -4,4 +4,4 @@ interface ADDD {
 }
 export declare const add: ADDD;
 
-export const a: number;
+export declare const a: number;

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="list"></ul>
+  <script>
+
+    // toLocaleDateString
+    // 这个方法的坑很大，华为meta20 返回时间格式错误（12/5/2019）
+    
+    function getDate(data, n = 0) {
+      let day = (data.getDay() || 7) + n * 7;
+      let d = new Date(data.getFullYear(), data.getMonth(), data.getDate() - day + 1);
+      return `${d.getFullYear()}-${d.getMonth() - 1}-${d.getDate()}****${d.toLocaleDateString()}`
+    } 
+    const now = new Date();
+    // console.log(getDate(now))
+
+    document.querySelector('#list').innerHTML = `****${getDate(now, 1)}****`
+  </script>
+</body>
+</html>

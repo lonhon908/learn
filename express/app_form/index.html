@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="btn" onclick="submitFirst();">哈哈</button>
     <!-- get表单 -->
     <form action="http://localhost:3005/process_get" method="GET">
         First Name: <input type="text" name="first_name"> <br>
@@ -26,6 +27,28 @@
         Last Name: <input type="text" name="last_name">
     </div>
     <input type="submit" value="提交" onclick="submit();">
+    <script>
+        var params = {
+            first_name: '章1',
+            last_name: '三2'
+        }
+        function submitFirst() {
+            var form = document.createElement('form');
+            form.style.display = 'none';
+            form.action = 'http://localhost:3005/process_post';
+            form.method = 'POST';
+            document.body.appendChild(form);
+            for(var key in params) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = params[key];
+                form.appendChild(input)
+            }
+            form.submit();
+            form.remove();
+        }
+    </script>
     <script>
         function submit() {
             const inputNode = document.querySelectorAll('.formData input');
