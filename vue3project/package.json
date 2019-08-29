@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "element-ui": "^2.6.1",
+    "iview": "^2.6.0",
     "mint-ui": "^2.2.13",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",

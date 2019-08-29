@@ -10,6 +10,11 @@ import MintUI from 'mint-ui';
 import 'mint-ui/lib/style.css';
 Vue.use(MintUI);
 
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+
+Vue.use(iView);
+
 import Modal from './components/plugins/modal';
 Vue.use(Modal);
 import Toast from './components/plugins/toast';

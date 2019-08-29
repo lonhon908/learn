@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {margin: 0;padding: 0;}
+    html,body,#root {height: 100%;width: 100%;}
+    .box {
+      margin: 50px;
+      width: 200px;
+      height: 200px;
+      background-color: #fff;
+      box-shadow: 1px 1px 1px 1px red;
+      outline: 20px solid #000;
+    outline-offset: -118px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <label for="x">X轴的偏移量</label>
+    <input type="number" step="1" id="x" value="1" onchange="onchangeX(event);"/>
+
+    <label for="y">Y轴的偏移量</label>
+    <input type="number" step="1" id="y" value="1" onchange="onchangeY(event);"/>
+
+    <label for="a">模糊半径</label>
+    <input type="number" step="1" id="a" value="1" onchange="onchangeA(event);"/>
+
+    <label for="b">扩张半径</label>
+    <input type="number" step="1" id="b" value="1" onchange="onchangeB(event);"/>
+
+    <div class="box"></div>
+  </div>
+
+  <script>
+    `
+    我们来看看 box-shadow 的用法定义：
+    {
+      box-shadow: none | [inset? && [ <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? ] ]#
+    }
+    以 box-shadow: 1px 2px 3px 4px #333 为例，4 个数值的含义分别是，x 方向偏移值、y 方向偏移值 、模糊半径、扩张半径。
+    这里有一个小技巧，扩张半径可以为负值。
+
+    继续，如果阴影的模糊半径，与负的扩张半径一致，那么我们将看不到任何阴影，因为生成的阴影将被包含在原来的元素之下，除非给它设定一个方向的偏移量。所以这个时候，我们给定一个方向的偏移值，即可实现单侧投影
+    `
+    var x = 1,y = 1, a = 1, b = 1;
+
+    const node = document.querySelector('.box');
+
+    function onchangeX(e) {
+      x = e.target.value;
+      setBox()
+    }
+    function onchangeY(e) {
+      y = e.target.value;
+      setBox()
+    }
+    function onchangeA(e) {
+      a = e.target.value;
+      setBox()
+    }
+    function onchangeB(e) {
+      b = e.target.value;
+      setBox()
+    }
+
+    function setBox() {
+      node.style.boxShadow = `${x}px ${y}px ${a}px ${b}px red`;
+    }
+  </script>
+</body>
+</html>

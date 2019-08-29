@@ -8,7 +8,20 @@ app.use(express.static('public'));
 
 app.get('/download.do', function(req, res) {
     // res.download('public/c.json');
-    fs.readFile(path.resolve(__dirname, '../public/d.pdf'), function(err, data) {
+    const file = path.resolve(__dirname, '../public/d.pdf');
+    let stream = fs.createReadStream(file);
+    stream.pipe(res);
+    // fs.readFile(path.resolve(__dirname, '../public/d.pdf'), function(err, data) {
+    //     if (err) {
+    //         throw err
+    //     }
+    //     res.end(data)
+    // })
+})
+
+app.get('/video.do', function(req, res) {
+    // res.download('public/c.json');
+    fs.readFile(path.resolve(__dirname, '../public/movie.ogv'), function(err, data) {
         if (err) {
             throw err
         }

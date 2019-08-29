@@ -69,5 +69,10 @@ export default new Router({
         ...vueRouterRouter
       ]
     },
+    {
+      path: '/iviews',
+      name: 'iview',
+      component: () => import(/* webpackChunkName: 'iviews */ '../views/iviews/index.vue')
+    }
   ]
 })

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>输入框字符看上去都是大写，但是js获取的value值却是真实输入大小写</title>
+  <style>
+    #app input {
+      /* 输入框字符看上去都是大写，但是js获取的value值却是真实输入大小写 */
+      text-transform: uppercase;
+    }
+  
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" id="input">
+    <button onclick="chakan();">js查看</button>
+  </div>
+
+  <script>
+    function chakan() {
+      var input = document.getElementById('input');
+      alert(input.value)
+    }
+  
+  </script>
+</body>
+</html>

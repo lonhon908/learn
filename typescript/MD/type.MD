@@ -2,7 +2,7 @@
 
 
 ##### 1、组合类型 <font color=orange>&</font>
-<a href="./ts/type.ts">type.td</a>
+<a href="../ts/type.ts">type.td</a>
 
 ```js
 // 一个Animal类型，以及一个Dog类型，可以使用&来进行复用
@@ -21,7 +21,7 @@ const dog: Dog = {
 ```
 
 ##### 2、动态的 JSON 类型指定
-<a href="./ts/type.ts">type.td</a>
+<a href="../ts/type.ts">type.td</a>
 
 ```js
 type info = {

@@ -17,7 +17,7 @@ const phoneList = {
   }
 }
 ```
-<a href="./ts/in.ts">in.ts</a>
+<a href="../ts/in.ts">in.ts</a>
 
 ##### 1、约束参数
 ```js
@@ -26,7 +26,7 @@ type ChinaMobilePhones = '10086' | '10010' | '10000';
 let phone: ChinaMobilePhones;
 ```
 
-<a href="./ts/in.ts">in.ts</a>
+<a href="../ts/in.ts">in.ts</a>
 
 ##### 2、类型遍历  <font color=orange>in</font>
 ```js
@@ -46,7 +46,7 @@ type ChinaMobileList = {
 const data: ChinaMobileList = list;
 ```
 
-<a href="./ts/keyof.ts">keyof.ts</a>
+<a href="../ts/keyof.ts">keyof.ts</a>
 
 ##### 3、约束方法的参数  <font color=orange>keyof</font>
 
